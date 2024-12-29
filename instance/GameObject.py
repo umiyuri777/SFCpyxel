@@ -1,7 +1,6 @@
 import math
 import pyxel
 
-
 class GameObject:
 	def __init__(self):
 		self.exists = False
@@ -21,13 +20,12 @@ class GameObject:
 	def setSpeed(self, rad, speed):
 		self.vx, self.vy = speed * math.cos(rad), speed * -math.sin(rad)
 	def drawSelf(self, palette):
-		r2 = self.size/2
-		pyxel.rect(self.x-r2, self.y-r2, self.x+r2, self.y+r2, palette)
+		pyxel.circ(self.x, self.y, self.size // 2, palette)
 	def isOutSide(self):
-		r2 = self.size/2
+		r2 = self.size // 2
 		return self.x < -r2 or self.y < -r2 or self.x > pyxel.width+r2 or self.y > pyxel.height+r2
 	def clipScreen(self):
-		r2 = self.size/2
+		r2 = self.size // 2
 		self.x = r2 if self.x < r2 else self.x
 		self.y = r2 if self.y < r2 else self.y
 		self.x = pyxel.width-r2 if self.x > pyxel.width-r2 else self.x
