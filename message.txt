@@ -79,7 +79,6 @@ class App:
 		pyxel.init(160, 240, title="Test", fps=60)
 		# self.init()
 		self.scene = SCENE_TITLE
-		self.press_enter = False
 		pyxel.run(self.update, self.draw)
 	def init(self):
 		self.player = Player()
@@ -94,13 +93,12 @@ class App:
 		self.background = Background()
 
 	def update(self):
-		
-		if self.press_enter == False:
+		if press_enter == False:
 			return
 		if pyxel.btnp(pyxel.KEY_1):
 			pyxel.quit()
 		if pyxel.btnp(pyxel.KEY_R):
-			self.init()	
+			self.init()
 
 		# 各種オブジェクトの更新
 		self.player.update()
@@ -141,10 +139,9 @@ class App:
 	def draw(self):
 		if self.scene == SCENE_TITLE:
 			self.draw_title_scene()
-			
-			if pyxel.btnp(pyxel.KEY_RETURN) and self.press_enter == False:
+			if pyxel.btnp(pyxel.KEY_RETURN) and press_enter == False:
 				self.scene = self.scene+ 1
-				self.press_enter = True
+				press_enter = True
 				self.init()
 			return
 		pyxel.cls(0)
@@ -154,7 +151,7 @@ class App:
 		self.boss.draw()
 		Bullet.mgr.draw()
 		Particle.mgr.draw()
-		# pyxel.cls(0)
+		pyxel.cls(0)
 		# self.background.draw()
 		print(self.scene)
 		# if self.scene == SCENE_TITLE:
