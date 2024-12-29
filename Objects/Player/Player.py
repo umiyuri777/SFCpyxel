@@ -16,8 +16,9 @@ class Player(GameObject):
 		if self.exists == False:
 			return
 		
-		if pyxel.btnp(pyxel.KEY_SPACE):
-			Shot.add(self.x, self.y, 90, 5) # 弾を撃つ
+		if pyxel.btn(pyxel.KEY_SPACE):
+			if pyxel.frame_count % 5 == 0:
+				Shot.add(self.x, self.y, 90, 5) # 弾を撃つ
 		
 		# Moving...
 		dx, dy = 0, 0
