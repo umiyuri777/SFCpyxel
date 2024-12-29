@@ -21,13 +21,13 @@ class Player(GameObject):
 		
 		# Moving...
 		dx, dy = 0, 0
-		if pyxel.btn(pyxel.KEY_LEFT):
+		if pyxel.btn(pyxel.KEY_A):
 				dx = -1
-		elif pyxel.btn(pyxel.KEY_RIGHT):
+		elif pyxel.btn(pyxel.KEY_D):
 				dx = 1
-		if pyxel.btn(pyxel.KEY_UP):
+		if pyxel.btn(pyxel.KEY_W):
 				dy = -1
-		elif pyxel.btn(pyxel.KEY_DOWN):
+		elif pyxel.btn(pyxel.KEY_S):
 				dy = 1
 		if(dx == 0 and dy == 0):
 			return # 動いていない
